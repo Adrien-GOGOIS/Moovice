@@ -13,25 +13,7 @@ import PopularBattle from "./views/PopularBattle";
 import Favorites from "./views/Favorites";
 import Home from "./views/Home";
 
-// let data;
-
 class App extends React.Component {
-  // constructor() {
-  //   super();
-
-  //   this.askAPI = this.askAPI.bind(this);
-  // }
-
-  // askAPI() {
-  //   fetch(
-  //     "https://api.themoviedb.org/3/movie/76341?api_key=f9e1d8b71b4f67f5c7ba670942943029"
-  //   )
-  //     .then((res) => res.json)
-  //     .then((res) => {
-  //       console.log(res);
-  //     });
-  // }
-
   render() {
     return (
       <BrowserRouter>

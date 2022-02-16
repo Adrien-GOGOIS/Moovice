@@ -36,6 +36,7 @@ class Popular extends React.Component {
               title={movie.title}
               year={movie.release_date}
               description={movie.overview}
+              key={movie}
             />
           ))}
         </div>
