@@ -41,7 +41,7 @@ class Weekly extends React.Component {
               title={movie.title}
               year={movie.release_date}
               description={movie.overview}
-              key={movie}
+              key={this.state.movies}
             />
           ))}
         </div>
