@@ -3,10 +3,12 @@ import React from "react";
 import Card from "../components/Card";
 
 import moment from "moment";
-moment().format();
 
-const now = moment();
-console.log(now);
+const today = moment().format("YYYY-MM-DD");
+console.log(today);
+
+const lastWeek = moment().add(-7, "days").format("YYYY-MM-DD");
+console.log(lastWeek);
 
 class Weekly extends React.Component {
   constructor() {
@@ -18,17 +20,13 @@ class Weekly extends React.Component {
 
   componentDidMount() {
     fetch(
-      "http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${LAST_WEEK}&primary_release_date.lte=${TODAY}&api_key=f9e1d8b71b4f67f5c7ba670942943029"
+      `http://api.themoviedb.org/3/discover/movie?primary_release_date.gte=${lastWeek}&primary_release_date.lte=${today}&api_key=f9e1d8b71b4f67f5c7ba670942943029`
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log("RES", res);
-
         this.setState({
           movies: res.results,
         });
-
-        console.log(this.state.movies);
       });
   }
 
