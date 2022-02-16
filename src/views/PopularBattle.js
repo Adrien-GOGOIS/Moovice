@@ -2,13 +2,15 @@ import React from "react";
 
 import Card from "../components/Card";
 
+const storage = [];
+
 class PopularBattle extends React.Component {
   constructor() {
     super();
     this.state = {
       movies: [],
       currentBattle: 0,
-      savedMovies: localStorage.getItem("savedMovies"),
+      savedMovies: JSON.parse(localStorage.getItem("savedMovies")),
     };
 
     this.chooseMovie = this.chooseMovie.bind(this);
@@ -32,15 +34,16 @@ class PopularBattle extends React.Component {
 
   // Fonction de choix d'un film en "battle"
 
-  chooseMovie(num) {
+  chooseMovie(id) {
     this.setState({
       currentBattle: this.state.currentBattle + 2,
     });
-    localStorage.setItem(
-      "savedMovies",
-      JSON.stringify(this.state.movies[this.state.currentBattle + num].id)
-    );
-    console.log("LOCAL STORAGE", this.state.savedMovies);
+
+    storage.push(id);
+    console.log("STORAGE", storage);
+
+    localStorage.setItem("savedMovies", JSON.stringify(storage));
+    console.log("LOCAL STORAGE", storage);
   }
 
   // RENDER
@@ -50,7 +53,11 @@ class PopularBattle extends React.Component {
         <h1>POPULAR BATTLE</h1>
         {this.state.movies.length !== 0 && (
           <>
-            <button onClick={() => this.chooseMovie(0)}>
+            <button
+              onClick={() =>
+                this.chooseMovie(this.state.movies[this.state.currentBattle].id)
+              }
+            >
               <Card
                 title={this.state.movies[this.state.currentBattle].title}
                 year={this.state.movies[this.state.currentBattle].release_date}
@@ -59,7 +66,13 @@ class PopularBattle extends React.Component {
                 }
               />
             </button>
-            <button onClick={() => this.chooseMovie(1)}>
+            <button
+              onClick={() =>
+                this.chooseMovie(
+                  this.state.movies[this.state.currentBattle + 1].id
+                )
+              }
+            >
               <Card
                 title={this.state.movies[this.state.currentBattle + 1].title}
                 year={
