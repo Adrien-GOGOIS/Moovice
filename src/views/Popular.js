@@ -19,7 +19,7 @@ class Popular extends React.Component {
         console.log("RES", res);
 
         this.setState({
-          movies: [...this.state.movies, res],
+          movies: res.results,
         });
 
         console.log(this.state.movies);
@@ -31,15 +31,13 @@ class Popular extends React.Component {
       <div>
         <h1>POPULAR</h1>;
         <div>
-          <ul>
-            <li>
-              <Card
-                title={this.state.movies[0].results.title}
-                year={this.state.movies[0].results.release_date}
-                description={this.state.movies[0].results.overview}
-              />
-            </li>
-          </ul>
+          {this.state.movies.map((movie) => (
+            <Card
+              title={movie.title}
+              year={movie.release_date}
+              description={movie.overview}
+            />
+          ))}
         </div>
       </div>
     );
