@@ -9,6 +9,9 @@ class PopularBattle extends React.Component {
       movies: [],
       currentBattle: 0,
     };
+
+    this.chooseMovie1 = this.chooseMovie1.bind(this);
+    this.chooseMovie2 = this.chooseMovie2.bind(this);
   }
 
   componentDidMount() {
@@ -27,22 +30,48 @@ class PopularBattle extends React.Component {
       });
   }
 
+  // Fonction de choix d'un film en "battle"
+  // Choix film 1
+  chooseMovie1() {
+    this.setState({
+      currentBattle: this.state.currentBattle + 2,
+    });
+  }
+
+  // Choix film 2
+  chooseMovie2() {
+    this.setState({
+      currentBattle: this.state.currentBattle + 2,
+    });
+  }
+
+  // RENDER
   render() {
     return (
       <div>
         <h1>POPULAR BATTLE</h1>
         {this.state.movies.length !== 0 && (
           <>
-            <Card
-              title={this.state.movies[0].title}
-              year={this.state.movies[0].release_date}
-              description={this.state.movies[0].overview}
-            />
-            <Card
-              title={this.state.movies[1].title}
-              year={this.state.movies[1].release_date}
-              description={this.state.movies[1].overview}
-            />
+            <button onClick={this.chooseMovie1}>
+              <Card
+                title={this.state.movies[this.state.currentBattle].title}
+                year={this.state.movies[this.state.currentBattle].release_date}
+                description={
+                  this.state.movies[this.state.currentBattle].overview
+                }
+              />
+            </button>
+            <button onClick={this.chooseMovie2}>
+              <Card
+                title={this.state.movies[this.state.currentBattle + 1].title}
+                year={
+                  this.state.movies[this.state.currentBattle + 1].release_date
+                }
+                description={
+                  this.state.movies[this.state.currentBattle + 1].overview
+                }
+              />
+            </button>
           </>
         )}
       </div>
