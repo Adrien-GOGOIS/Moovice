@@ -8,10 +8,10 @@ class PopularBattle extends React.Component {
     this.state = {
       movies: [],
       currentBattle: 0,
+      savedMovies: localStorage.getItem("savedMovies"),
     };
 
-    this.chooseMovie1 = this.chooseMovie1.bind(this);
-    this.chooseMovie2 = this.chooseMovie2.bind(this);
+    this.chooseMovie = this.chooseMovie.bind(this);
   }
 
   componentDidMount() {
@@ -20,29 +20,27 @@ class PopularBattle extends React.Component {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log("RES", res.results[0]);
+        // console.log("RES", res.results[0]);
 
         this.setState({
           movies: res.results,
         });
 
-        console.log("TEST NOM DU FILM", this.state.currentMovies);
+        // console.log("TEST NOM DU FILM", this.state.currentMovies);
       });
   }
 
   // Fonction de choix d'un film en "battle"
-  // Choix film 1
-  chooseMovie1() {
-    this.setState({
-      currentBattle: this.state.currentBattle + 2,
-    });
-  }
 
-  // Choix film 2
-  chooseMovie2() {
+  chooseMovie(num) {
     this.setState({
       currentBattle: this.state.currentBattle + 2,
     });
+    localStorage.setItem(
+      "savedMovies",
+      JSON.stringify(this.state.movies[this.state.currentBattle + num].id)
+    );
+    console.log("LOCAL STORAGE", this.state.savedMovies);
   }
 
   // RENDER
@@ -52,7 +50,7 @@ class PopularBattle extends React.Component {
         <h1>POPULAR BATTLE</h1>
         {this.state.movies.length !== 0 && (
           <>
-            <button onClick={this.chooseMovie1}>
+            <button onClick={() => this.chooseMovie(0)}>
               <Card
                 title={this.state.movies[this.state.currentBattle].title}
                 year={this.state.movies[this.state.currentBattle].release_date}
@@ -61,7 +59,7 @@ class PopularBattle extends React.Component {
                 }
               />
             </button>
-            <button onClick={this.chooseMovie2}>
+            <button onClick={() => this.chooseMovie(1)}>
               <Card
                 title={this.state.movies[this.state.currentBattle + 1].title}
                 year={
