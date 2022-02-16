@@ -33,6 +33,7 @@ class Popular extends React.Component {
         <div>
           {this.state.movies.map((movie) => (
             <Card
+              image={`https://image.tmdb.org/t/p/w300/${movie.poster_path}`}
               title={movie.title}
               year={movie.release_date}
               description={movie.overview}

@@ -71,6 +71,9 @@ class PopularBattle extends React.Component {
             >
               {/* Component Card info film */}
               <Card
+                image={`https://image.tmdb.org/t/p/w300/${
+                  this.state.movies[this.state.currentBattle].poster_path
+                }`}
                 title={this.state.movies[this.state.currentBattle].title}
                 year={this.state.movies[this.state.currentBattle].release_date}
                 description={
@@ -88,6 +91,9 @@ class PopularBattle extends React.Component {
             >
               {/* Component Card info film */}
               <Card
+                image={`https://image.tmdb.org/t/p/w300/${
+                  this.state.movies[this.state.currentBattle + 1].poster_path
+                }`}
                 title={this.state.movies[this.state.currentBattle + 1].title}
                 year={
                   this.state.movies[this.state.currentBattle + 1].release_date
