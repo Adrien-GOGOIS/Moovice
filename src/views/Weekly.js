@@ -53,7 +53,7 @@ class Weekly extends React.Component {
 
 const Title = styled.h1`
   text-align: center;
-  margin: 60px 200px;
+  margin: 25px 200px;
   border: solid rgba(100, 100, 250, 0.5);
   border-radius: 10px;
   padding: 20px 0;

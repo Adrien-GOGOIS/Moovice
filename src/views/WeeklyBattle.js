@@ -73,7 +73,7 @@ class WeeklyBattle extends React.Component {
 
         {this.state.movies.length !== 0 && storage.length < 10 && (
           <>
-            <button
+            <StyledButton
               // On clique sur la carte afin d'appeler la fonction de sauvegarde du choix "chooseMovie()"
               // qui prend en paramètre l'ID du film actuel (selon le state de "currentBattle")
               onClick={() =>
@@ -91,8 +91,9 @@ class WeeklyBattle extends React.Component {
                   this.state.movies[this.state.currentBattle].overview
                 }
               />
-            </button>
-            <button
+            </StyledButton>
+            <SubTitle>VS</SubTitle>
+            <StyledButton
               // IDEM avec le film suivant ("currentBattle + 1")
               onClick={() =>
                 this.chooseMovie(
@@ -113,7 +114,7 @@ class WeeklyBattle extends React.Component {
                   this.state.movies[this.state.currentBattle + 1].overview
                 }
               />
-            </button>
+            </StyledButton>
           </>
         )}
       </div>
@@ -123,10 +124,27 @@ class WeeklyBattle extends React.Component {
 
 const Title = styled.h1`
   text-align: center;
-  margin: 60px 200px;
+  margin: 20px 200px;
   border: solid rgba(100, 100, 250, 0.5);
   border-radius: 10px;
   padding: 20px 0;
+`;
+
+const StyledButton = styled.button`
+  margin: 25px 50px;
+  padding: 0;
+  background-color: rgba(138, 185, 255, 1);
+  border-radius: 10px;
+  border: none;
+  box-shadow: 10px 10px 10px 10px rgba(050, 050, 050, 1);
+`;
+
+const SubTitle = styled.h2`
+  text-align: center;
+  margin: 20px 100px;
+  padding: 5px 0;
+  border-top: solid black 1px;
+  border-bottom: solid black 1px;
 `;
 
 export default WeeklyBattle;

@@ -11,7 +11,9 @@ class Card extends React.Component {
         <div>
           <img src={this.props.image} alt="Affiche du film" />
           <p className="title">{this.props.title}</p>
-          <p className="release">{this.props.year}</p>
+          <p className="release">
+            Date de sortie <span>{this.props.year}</span>
+          </p>
           <p className="description">{this.props.description}</p>
         </div>
       </StyleCard>
@@ -33,7 +35,7 @@ const StyleCard = styled.div`
     justify-content: center;
     text-align: center;
     align-items: center;
-    background-color: rgba(240, 240, 240, 0.8);
+    background-color: rgba(138, 185, 255, 0.664);
     border-radius: 20px;
   }
 
@@ -54,6 +56,10 @@ const StyleCard = styled.div`
   .description {
     width: 60%;
     padding: 30px;
+  }
+
+  span {
+    font-weight: bold;
   }
 `;
 
