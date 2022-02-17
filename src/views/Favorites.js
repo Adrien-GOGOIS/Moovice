@@ -37,13 +37,15 @@ class Favorites extends React.Component {
     return storage1.concat(storage2);
   }
 
-  removeMovie(id) {
-    let indexMovie = this.state.favIDs.indexOf(id);
-    console.log(indexMovie);
-
-    this.setState({
-      movies: this.state.movies.splice(indexMovie, 1),
-    });
+  // TO DO : Fonction complètement buggée, ne fonctionne pas avec filter(), map(), splice()
+  removeMovie(ID) {
+    // let arr = [];
+    // this.state.movies.map((movie) => arr.push(movie.id));
+    // let index = arr.indexOf(ID);
+    // arr.splice(index, 1);
+    // this.setState({
+    //   movies: arr,
+    // });
   }
 
   // APPEL DE L'API POUR RECUPERER FILM PAR ID
@@ -79,7 +81,10 @@ class Favorites extends React.Component {
                     year={movie.release_date}
                     key={movie.poster_path}
                   />
-                  <button onClick={() => this.removeMovie(movie.id)}>
+                  <button
+                    className="btn btn-danger ms-5 mb-5"
+                    onClick={() => this.removeMovie(movie.id)}
+                  >
                     Supprimer
                   </button>
                 </>
