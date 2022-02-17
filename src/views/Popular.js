@@ -16,13 +16,9 @@ class Popular extends React.Component {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log("RES", res);
-
         this.setState({
           movies: res.results,
         });
-
-        console.log(this.state.movies);
       });
   }
 

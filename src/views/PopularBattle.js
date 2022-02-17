@@ -11,7 +11,7 @@ class PopularBattle extends React.Component {
     this.state = {
       movies: [],
       currentBattle: 0,
-      savedMovies: JSON.parse(localStorage.getItem("savedMovies")),
+      savedPopMovies: JSON.parse(localStorage.getItem("savedPopMovies")),
     };
 
     this.chooseMovie = this.chooseMovie.bind(this);
@@ -44,7 +44,7 @@ class PopularBattle extends React.Component {
     }
 
     // On envoie cette variable dans le local storage
-    localStorage.setItem("savedMovies", JSON.stringify(storage));
+    localStorage.setItem("savedPopMovies", JSON.stringify(storage));
   }
 
   // RENDER
