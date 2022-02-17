@@ -34,8 +34,12 @@ class Favorites extends React.Component {
   }
 
   removeMovie(id) {
-    localStorage.removeItem("savedMovies", JSON.stringify(id));
-    console.log("TEST REMOVEMOVIE");
+    let indexMovie = this.state.favIDs.indexOf(id);
+    console.log(indexMovie);
+
+    this.setState({
+      movies: this.state.movies.splice(indexMovie, 1),
+    });
   }
 
   // APPEL DE L'API POUR RECUPERER FILM PAR ID
