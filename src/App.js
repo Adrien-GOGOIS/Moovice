@@ -2,6 +2,7 @@ import React from "react";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import styled from "styled-components";
 
 import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
@@ -18,31 +19,39 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <div>
-          <nav>
-            <Link style={{ margin: "10px" }} to="/">
+          <Navbar>
+            <Link className="link" style={{ margin: "10px" }} to="/">
               HOME
             </Link>
 
-            <Link style={{ margin: "10px" }} to="/weekly">
+            <Link className="link" style={{ margin: "10px" }} to="/weekly">
               WEEKLY
             </Link>
 
-            <Link style={{ margin: "10px" }} to="/weekly-battle">
+            <Link
+              className="link"
+              style={{ margin: "10px" }}
+              to="/weekly-battle"
+            >
               WEEKLY BATTLE
             </Link>
 
-            <Link style={{ margin: "10px" }} to="/popular">
+            <Link className="link" style={{ margin: "10px" }} to="/popular">
               POPULAR
             </Link>
 
-            <Link style={{ margin: "10px" }} to="/popular-battle">
+            <Link
+              className="link"
+              style={{ margin: "10px" }}
+              to="/popular-battle"
+            >
               POPULAR BATTLE
             </Link>
 
-            <Link style={{ margin: "10px" }} to="/favorites">
+            <Link className="link" style={{ margin: "10px" }} to="/favorites">
               FAVORITES
             </Link>
-          </nav>
+          </Navbar>
         </div>
 
         <Switch>
@@ -57,5 +66,23 @@ class App extends React.Component {
     );
   }
 }
+
+const Navbar = styled.nav`
+  display: flex;
+  flex-direction: row;
+  margin: 15px 20px;
+  text-align: center;
+
+  .link {
+    text-decoration: none;
+    padding: 5px;
+    background-color: aliceblue;
+    color: black;
+  }
+
+  .link:hover {
+    font-weight: bold;
+  }
+`;
 
 export default App;

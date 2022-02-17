@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "../components/Card";
 
+import styled from "styled-components";
+
 // const storage = localStorage.getItem("savedMovies");
 
 class Favorites extends React.Component {
@@ -19,9 +21,11 @@ class Favorites extends React.Component {
   componentDidMount() {
     console.log("STATES FAVIDS", this.state.favIDs);
 
+    // if (this.state.movies.length !== 0) {
     this.state.favIDs.map((idNum) => {
       this.getMovie(idNum);
     });
+    // }
   }
 
   // RECUPERE LE LOCAL STORAGE STOCKE DANS LA VARIABLE STORAGE ET LE RETRANSFORME EN JSON
@@ -59,7 +63,7 @@ class Favorites extends React.Component {
   render() {
     return (
       <>
-        <h1>FAVORITES</h1>
+        <Title>FAVORITES</Title>
 
         {this.state.favIDs === null && <h2>Pas de favoris enregistré !</h2>}
 
@@ -87,5 +91,13 @@ class Favorites extends React.Component {
     );
   }
 }
+
+const Title = styled.h1`
+  text-align: center;
+  margin: 60px 200px;
+  border: solid rgba(100, 100, 250, 0.5);
+  border-radius: 10px;
+  padding: 20px 0;
+`;
 
 export default Favorites;

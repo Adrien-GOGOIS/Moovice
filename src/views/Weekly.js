@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../components/Card";
+import styled from "styled-components";
 
 import moment from "moment";
 
@@ -33,7 +34,7 @@ class Weekly extends React.Component {
   render() {
     return (
       <div>
-        <h1>WEEKLY</h1>;
+        <Title>WEEKLY</Title>
         <div>
           {this.state.movies.map((movie) => (
             <Card
@@ -49,5 +50,13 @@ class Weekly extends React.Component {
     );
   }
 }
+
+const Title = styled.h1`
+  text-align: center;
+  margin: 60px 200px;
+  border: solid rgba(100, 100, 250, 0.5);
+  border-radius: 10px;
+  padding: 20px 0;
+`;
 
 export default Weekly;

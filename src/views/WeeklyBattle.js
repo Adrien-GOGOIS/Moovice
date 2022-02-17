@@ -1,6 +1,7 @@
 import React from "react";
 
 import Card from "../components/Card";
+import styled from "styled-components";
 
 import moment from "moment";
 
@@ -59,7 +60,7 @@ class WeeklyBattle extends React.Component {
   render() {
     return (
       <div>
-        <h1>POPULAR BATTLE</h1>
+        <Title>POPULAR BATTLE</Title>
 
         {/* Si les 20 films ont été parcouru, 10 films ont été stocké donc on arrête tout */}
 
@@ -119,5 +120,13 @@ class WeeklyBattle extends React.Component {
     );
   }
 }
+
+const Title = styled.h1`
+  text-align: center;
+  margin: 60px 200px;
+  border: solid rgba(100, 100, 250, 0.5);
+  border-radius: 10px;
+  padding: 20px 0;
+`;
 
 export default WeeklyBattle;
