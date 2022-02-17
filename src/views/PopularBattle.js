@@ -55,7 +55,9 @@ class PopularBattle extends React.Component {
 
         {/* Si les 20 films ont été parcouru, 10 films ont été stocké donc on arrête tout */}
 
-        {storage.length === 10 && <h2>Vous avez parcouru tous les films !</h2>}
+        {storage.length === this.state.movies.length / 2 && (
+          <h2>Vous avez parcouru tous les films !</h2>
+        )}
 
         {/* Une fois qu'on est sûr d'avoir récupéré la liste des films, et qu'on a pas stocké plus de la moitié dans le local storage, 
         on affiche les 2 premières cartes en fonction de l'ID contenu dans le state "currentBattle" */}

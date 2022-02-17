@@ -19,17 +19,29 @@ class App extends React.Component {
       <BrowserRouter>
         <div>
           <nav>
-            <Link to="/">HOME</Link>
+            <Link style={{ margin: "10px" }} to="/">
+              HOME
+            </Link>
 
-            <Link to="/weekly">WEEKLY</Link>
+            <Link style={{ margin: "10px" }} to="/weekly">
+              WEEKLY
+            </Link>
 
-            <Link to="/weekly-battle">WEEKLY BATTLE</Link>
+            <Link style={{ margin: "10px" }} to="/weekly-battle">
+              WEEKLY BATTLE
+            </Link>
 
-            <Link to="/popular">POPULAR</Link>
+            <Link style={{ margin: "10px" }} to="/popular">
+              POPULAR
+            </Link>
 
-            <Link to="/popular-battle">POPULAR BATTLE</Link>
+            <Link style={{ margin: "10px" }} to="/popular-battle">
+              POPULAR BATTLE
+            </Link>
 
-            <Link to="/favorites">FAVORITES</Link>
+            <Link style={{ margin: "10px" }} to="/favorites">
+              FAVORITES
+            </Link>
           </nav>
         </div>
 

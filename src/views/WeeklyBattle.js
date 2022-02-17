@@ -63,7 +63,7 @@ class WeeklyBattle extends React.Component {
 
         {/* Si les 20 films ont été parcouru, 10 films ont été stocké donc on arrête tout */}
 
-        {storage.length === 10 && (
+        {storage.length === this.state.movies.length / 2 && (
           <h2>Vous avez parcouru tous les films de la semaine!</h2>
         )}
 
